@@ -105,3 +105,32 @@ $$
 $$
 Q^*_{k+1}(s, a) \leftarrow \sum_{s'} P(s'|s, a)(R(s, a, s') + \gamma max_{a'}Q^*_{k}(s',a'))
 $$
+
+## Outline 
+
+Optimal Control - Given an MDP $(S, A, P, R, \gamma, H)$ find the optimal policy $\pi*$.
+
+Exact Methods : Value Iteration and Policy Iteration 
+
+We have looked at value iteration. Now lets look at policy iteration. 
+
+## Policy Iteration 
+
+Recall - 
+$$
+V_k^* = max_a \sum_{s'} P(s'|s, a)(R(s,a,s') + \gamma V_{k-1}^*(s'))
+$$
+We have a policy $\pi(s)$ which tells at every state what action to take. We want to calculate the value if the policy is fixed. We can get rid of the max in the above equation since the policy is fixed. 
+$$
+V_k^\pi(s) \leftarrow P(s'|s, \pi(s))(R(s, \pi(s), s') + \gamma V_{k-1}^\pi(s))
+$$
+We can also think of it as a new MDP where at each state the action is already chosen for you. 
+
+At convergence: 
+$$
+\forall s, V^\pi(s) \leftarrow \sum_{s'} P(s'|s, \pi(s))(R(s, \pi(s), s') + \gamma V^\pi(s))
+$$
+
+
+
+
